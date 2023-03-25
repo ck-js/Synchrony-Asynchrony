@@ -42,6 +42,28 @@ if (i === number1 - 1) {
 console.log(`We finished calculating the first ${array1.length} prime numbers`);
 console.log("We had to wait even longer for this line to print");
 
+function asyncExample() {
+    const array = [2];
+let number = 3;
+while (array.length < 10000) {
+for (let i = 2; i < number; i++) {
+if (number % i === 0) {
+number++;
+break;
+}
+if (i === number - 1) {
+    array.push(number);
+    number++;
+    break;
+}
+}
+}   
+return Promise.resolve(array);
+}
+asyncExample().then(function(value) {
+console.log(`We calculated the first ${value.length} prime numbers`);
+
+});
 
 
 
