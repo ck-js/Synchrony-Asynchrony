@@ -64,6 +64,18 @@ asyncExample().then(function(value) {
 console.log(`We calculated the first ${value.length} prime numbers`);
 
 });
+const asyncExample1 =
+fetch("https://cat-fact.herokuapp.com");
+asyncExample1.then(res => res.json()).then(data =>{
+        console.log(`This is our data: ${data}`);
+});
+console.log("Waiting for the data...");
+console.log("Continue to use the page while the page is requesting the data");
+
+
+
+
+
 
 
 
