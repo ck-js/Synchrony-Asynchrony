@@ -1,4 +1,7 @@
 
+
+// sync and async examples 
+
 console.log("We're calculating the first 6000 prime numbers");
 console.log("Waiting...");
 const array = [2];
@@ -98,9 +101,42 @@ example();
 console.log("Hello...");
 
 
+// call back functions 
 
+function add(number1, number2, callback) {
+    let result = number1 + number2;
+    callback(result);
+}
+function logResult(result) {
+    console.log(`The result is ${result}`);
+}
+add(5,5,logResult);
 
+// call backs are the same as array functions like map, filter or reduce
+const array4 = [2,5,7,8];
+function callback(num) {
+return num * 2;
+} 
+const newArray4 = array4.map(callback);
+console.log(newArray4);
+console.log("This code is synchronous");
 
+const array5 = [1,2,3,4,5,6,7,8];
+function evenNumberCallback(num) {
+    return num % 2 === 0;
+}
+const evenNumberArray =
+array5.filter(evenNumberCallback);
+console.log(evenNumberArray);
+console.log("This code is also synchronous");
+
+const array6 = [-6, -5, -4, -2];
+function makePositive(num) {
+return num * -1;
+}
+const newArray6 =
+array6.map(makePositive);
+console.log(newArray6)
 
 
 
