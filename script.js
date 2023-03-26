@@ -138,6 +138,32 @@ const newArray6 =
 array6.map(makePositive);
 console.log(newArray6)
 
+// call backs with asynchronous code //
+function greet(name, callback) {
+    console.log(`Hello, ${name}`);
+    callback();
+}
+function sayGoodbye() {
+    console.log("Goodbye...");
+}
+greet("Theresa", sayGoodbye);
+
+function multiplyCallback(num) {
+    const result = num * 2;
+    console.log(`The input doubled is equal to ${result}`);
+}
+function doSomeMath(input, callback) {
+    console.log("We are doubling the input number");
+    callback(input);
+}
+doSomeMath(2, multiplyCallback);
+
+
+
+
+
+
+
 
 
 
