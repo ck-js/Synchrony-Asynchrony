@@ -158,8 +158,12 @@ function doSomeMath(input, callback) {
 }
 doSomeMath(2, multiplyCallback);
 
-
-
+function callbackFunc() {
+console.log("Executed last because we're using asynchronous code");
+}
+setTimeout(callbackFunc, 1500);
+console.log("Executed first");
+console.log("Executed second");
 
 
 
