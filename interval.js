@@ -16,3 +16,22 @@ setTimeout(() => {
     console.log("Stop");
 }, 2500);
 
+let countdown = 3;
+const countdownInterval = setInterval(() => {
+if (countdown > 0) {
+    console.log(countdown);
+}
+countdown--;
+if (countdown < 0) {
+    clearInterval(countdownInterval);
+    console.log("Go");
+}
+}, 3000);
+
+
+
+
+
+
+
+
