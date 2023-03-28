@@ -42,8 +42,25 @@ if (count < 3) {
 function start() {
     intervalID = setInterval(callback,600);
 }
-start()
+start();
 
-
+let intervalID2;
+let direction = "Left";
+function startInterval() {
+    intervalID2 = setInterval(() => {
+        if (direction === "Left") {
+direction = "Right";
+        } else {
+direction = "Left";            
+        }
+    console.log(direction);
+}, 500);
+}
+function stopInterval() {
+    clearInterval(intervalID2);
+    console.log("Interval stopped");
+}
+startInterval();
+setTimeout(stopInterval, 2000);
 
 
