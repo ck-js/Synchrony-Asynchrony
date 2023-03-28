@@ -28,9 +28,21 @@ if (countdown < 0) {
 }
 }, 3000);
 
-
-
-
+let count = 0;
+ let intervalID;
+function callback() {
+if (count < 3) {
+    count += 1;
+    console.log("Callback executed");
+} else {
+    clearInterval(intervalID);
+    console.log("The interval was cleared after 3 executions");
+}
+}
+function start() {
+    intervalID = setInterval(callback,600);
+}
+start()
 
 
 
