@@ -34,10 +34,26 @@ function orderCustard() {
 const makeOrder2 = orderCustard();
 console.log(makeOrder2);
 
+const travelTicket = {
+    type: "Return",
+    airline: "THAI",
+    fare: "Economy",
+    price: 800,
+    airports: {departure: "BKK", destination: "CPT"}
+};
+console.log(travelTicket);
+function checkTicketPrice() {
+    return new Promise(function(resolve, reject) {
+if (travelTicket.fare === "Economy" && travelTicket.price < 800) {
+resolve("Great deal, the price is right")
+} else {
+    reject("The tickets are too expensive, check again later")
+}
 
-
-
-
+    });
+}
+let showTicketPrice = checkTicketPrice();
+console.log(showTicketPrice);
 
 
 
