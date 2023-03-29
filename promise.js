@@ -49,11 +49,24 @@ resolve("Great deal, the price is right")
 } else {
     reject("The tickets are too expensive, check again later")
 }
-
-    });
+});
 }
 let showTicketPrice = checkTicketPrice();
 console.log(showTicketPrice);
 
-
-
+const grades = {
+    maths: 46,
+    biology: 75,
+geography: 70,
+}
+function checkGrades() {
+    return new Promise(function(resolve, reject) {
+if (grades.maths > 50) {
+    resolve("Well done, you passed your maths exam")
+}else {
+    reject("Unfortunately, you failed your maths exam")
+} 
+    });
+}
+let checkMathGrades = checkGrades();
+console.log(checkMathGrades);
