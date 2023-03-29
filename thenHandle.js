@@ -1,5 +1,5 @@
 const dessertStock = {
-cheeseCake: 3,
+cheeseCake: 0,
 mousse: 5,
 custard: 0,
 }
@@ -12,7 +12,11 @@ return new Promise(function(resolve, reject) {
     }
 });
 }
+function handleSuccess(successValue) {
+    console.log(successValue);
+};
 const makeOrder1 = orderCheesecake();
-makeOrder1.then(function (successValue) {
-    console.log(successValue)
-});
+makeOrder1.then(handleSuccess);
+
+
+
