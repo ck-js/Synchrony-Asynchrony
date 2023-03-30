@@ -24,7 +24,7 @@ makeOrder1.then(handleSuccess).catch(handleFailure);
 
 const flowerStock = {
     girlScoutCookies: {
-        inStockAmount: 10,
+        inStockAmount: 3,
         price: 450,
     },
     whiteWidow: {
@@ -32,7 +32,7 @@ const flowerStock = {
         price: 350,
     },
     };
-    const flowerBudget = 600;
+    const flowerBudget = 300;
 function isAvailable() {
     return new Promise(function(resolve, reject) {
 if (flowerStock.girlScoutCookies.inStockAmount > 0) {
@@ -57,8 +57,12 @@ function handleIsAvailable(isAvailable) {
 function handleCheckPrice(successValue) {
     console.log(successValue);
 }
+function handleFlowerFailure(failureValue) {
+    console.log(failureValue);
+}
+
 const checkAvailability = isAvailable();
-checkAvailability.then(handleIsAvailable).then(handleCheckPrice);
+checkAvailability.then(handleIsAvailable).then(handleCheckPrice).catch(handleFlowerFailure);
 
 
 
