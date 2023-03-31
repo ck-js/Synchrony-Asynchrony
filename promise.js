@@ -6,7 +6,7 @@ const aBrandNewPromise = new Promise(function() {
 });
 
 const dessertStock = {
-    cheeseCake: 0,
+    cheeseCake: 3,
     croissant: 20,
     custard: 1,
 } 
@@ -21,7 +21,6 @@ if (dessertStock.cheeseCake > 0) {
 }
 const makeOrder1 = orderCheesecake();
 console.log(makeOrder1);
-
 function orderCustard() {
     return new Promise(function(resolve, reject) {
     if (dessertStock.custard > 0) {
