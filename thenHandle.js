@@ -95,40 +95,31 @@ console.log(makeBookstoreOrder);
 
 const inventory = {
     glueSticks: 1,
-    notebooks: 3, 
+    notebooks: 0, 
 pencils: 0,
 }
-let purchaseGlueSticks = false;
-let purchaseNotebooks = false;
+let purchase = false;
 
-function orderGlueSticks() {
+function orderNotebooks() {
     return new Promise(function(resolve, reject) {
-if (inventory.glueSticks > 0) {
-    purchaseGlueSticks = true;
-    resolve(purchaseGlueSticks);
-}else {
-  reject("Item gluesticks not available");  
-}
-    });
-}
-function orderNotebooks(glueSticksPurchased) {
-    return new Promise(function(resolve, reject) {
-        if (inventory.noteBooks > 0 && glueSticksPurchased) {
-            purchaseNotebooks = true;
-            resolve(purchaseNotebooks)
+        if (inventory.notebooks > 0) {
+            purchase = true;
+            resolve(purchase);
         }else {
-            reject("Item notebooks not available in inventory");
+            reject("Item notebook not in inventory");
         }
     });
 }
-function completeOrder() {
-    return orderGlueSticks().then(function(glueSticksPurchased) {
-        return orderNotebooks(glueSticksPurchased).then(function(result) {
-            if (result) {
-                console.log("Successfully purchased gluesticks hence i bought notebooks afterwards");
-            }
-        })
-    })
-}
-console.log(completeOrder());
+const completeOrder1 = orderNotebooks();
+completeOrder1.then(function(successValue) {
+    if (successValue) {
+        console.log("Purchase Complete!");
+    }
+}).catch(function(failureValue) {
+    console.log(failureValue);
+});;
+
+
+
+
 
