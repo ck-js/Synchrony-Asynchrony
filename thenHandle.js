@@ -65,4 +65,63 @@ const checkAvailability = isAvailable();
 checkAvailability.then(handleIsAvailable).then(handleCheckPrice).catch(handleFlowerFailure);
 
 
+// promise practice notes and code examples 
+
+const bookStore = {
+    novels: {
+        quantity: 20,
+        languages: ["English", "German", "Japanese"],
+    },
+    history: {
+        quantity: 13,
+        languages: ["English", "Russian", "Spanish"],
+    },
+    scifi: {
+        quantity: 0,
+        languages: [],
+    }
+}
+function purchaseNovels() {
+    return new Promise(function(resolve, reject) {
+        if (bookStore.scifi.quantity > 0) {
+            resolve("There are many novels in stock, proceeding with order");
+        }else {
+            reject("Not available at the moment, check again later..")
+        }
+    });
+}
+const makeBookstoreOrder =purchaseNovels(); 
+console.log(makeBookstoreOrder);
+
+const inventory = {
+    glueSticks: 10,
+    notebooks: 0, 
+pencils: 0,
+}
+let purchase = false;
+function orderNotebooks() {
+    return new Promise(function(resolve, reject) {
+        if (inventory.notebooks > 0) {
+            purchase = true;
+            resolve(purchase);
+        }else {
+            reject("Item not in inventory");
+        }
+    });
+}
+const completeOrder = orderNotebooks();
+completeOrder.then(function(successValue) {
+    if (successValue) {
+        console.log("Purchase Complete!");
+    }
+}).catch(function(failureValue) {
+    console.log(failureValue);
+});;
+
+
+
+
+
+
+
 
