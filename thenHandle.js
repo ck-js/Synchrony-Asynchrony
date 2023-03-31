@@ -94,34 +94,41 @@ const makeBookstoreOrder =purchaseNovels();
 console.log(makeBookstoreOrder);
 
 const inventory = {
-    glueSticks: 10,
-    notebooks: 0, 
+    glueSticks: 1,
+    notebooks: 3, 
 pencils: 0,
 }
-let purchase = false;
-function orderNotebooks() {
+let purchaseGlueSticks = false;
+let purchaseNotebooks = false;
+
+function orderGlueSticks() {
     return new Promise(function(resolve, reject) {
-        if (inventory.notebooks > 0) {
-            purchase = true;
-            resolve(purchase);
+if (inventory.glueSticks > 0) {
+    purchaseGlueSticks = true;
+    resolve(purchaseGlueSticks);
+}else {
+  reject("Item gluesticks not available");  
+}
+    });
+}
+function orderNotebooks(glueSticksPurchased) {
+    return new Promise(function(resolve, reject) {
+        if (inventory.noteBooks > 0 && glueSticksPurchased) {
+            purchaseNotebooks = true;
+            resolve(purchaseNotebooks)
         }else {
-            reject("Item not in inventory");
+            reject("Item notebooks not available in inventory");
         }
     });
 }
-const completeOrder = orderNotebooks();
-completeOrder.then(function(successValue) {
-    if (successValue) {
-        console.log("Purchase Complete!");
-    }
-}).catch(function(failureValue) {
-    console.log(failureValue);
-});;
-
-
-
-
-
-
-
+function completeOrder() {
+    return orderGlueSticks().then(function(glueSticksPurchased) {
+        return orderNotebooks(glueSticksPurchased).then(function(result) {
+            if (result) {
+                console.log("Successfully purchased gluesticks hence i bought notebooks afterwards");
+            }
+        })
+    })
+}
+console.log(completeOrder());
 
