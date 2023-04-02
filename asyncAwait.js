@@ -29,7 +29,18 @@ resolve(selectedBeverage);
 }, 1000);
 });
 }
-
+function checkIfHotWaterIsReady(isBeverageSelected) {
+return new Promise(function(resolve, reject) {
+setTimeout(function() {
+if (isBeverageSelected) {
+console.log("Preparing...");
+resolve(isBeverageSelected);
+}else {
+reject("No beverage has been picked up...");
+}
+}, 1000);
+})
+}
 
 
 
