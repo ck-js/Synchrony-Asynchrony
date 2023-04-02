@@ -42,5 +42,19 @@ reject("No beverage has been picked up...");
 })
 }
 
+function prepareDrink(selectedBeverage) {
+return new Promise(function(resolve,reject) {
+setTimeout(function() {
+if (selectedBeverage) {
+console.log(`Enjoy your ${selectedBeverage}`);
+resolve(true);
+}else {
+reject("Drink not ready yet...");
+}
+}, 1000);
+})
+}
+function nativePromiseHandling() {
 
 
+}
