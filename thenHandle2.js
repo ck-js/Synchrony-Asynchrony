@@ -1,9 +1,9 @@
 
 
 const inventory = {
-glueSticks: 10,
-notebooks: 17,
-pencils: 10,
+glueSticks: 17,
+notebooks: 1,
+pencils: 1,
 
 };
 let purchaseGlueStick = false;
@@ -50,12 +50,11 @@ return orderGlueSticks()
 return orderPencils(notebookPurchased).then(function(result) {
             console.log("Successfully purchased both gluestick and notebook and pencil");
 }).catch(function(error) {
-console.log(error);    
-}
+console.log(error);
+});
+});
 });
 }
-});
-
 completeOrder();
 
 
