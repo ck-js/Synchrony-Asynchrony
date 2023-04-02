@@ -55,6 +55,20 @@ reject("Drink not ready yet...");
 })
 }
 function nativePromiseHandling() {
-
-
+const pickedDrink = pickRandomBeverage();
+const handleWaterReadyCheck = 
+function(selectedBeverage) {
+return checkIfHotWaterIsReady(selectedBeverage); 
+};
+const handlePrepareDrink =
+function(isBeverageSelected) {
+    return prepareDrink(isBeverageSelected);
+};
+pickedDrink
+.then(handleWaterReadyCheck)
+.then(handlePrepareDrink);
 }
+nativePromiseHandling();
+
+
+
