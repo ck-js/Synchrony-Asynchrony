@@ -70,5 +70,10 @@ pickedDrink
 }
 nativePromiseHandling();
 
-
-
+async function asyncAwaitPromiseHandling() {
+const pickedDrink = await pickRandomBeverage();
+const isHotWaterReady = await checkIfHotWaterIsReady(pickedDrink);
+const isDrinkPrepared = await prepareDrink(isHotWaterReady);
+return isDrinkPrepared;
+}
+asyncAwaitPromiseHandling();
