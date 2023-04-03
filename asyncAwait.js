@@ -77,3 +77,34 @@ const isDrinkPrepared = await prepareDrink(isHotWaterReady);
 return isDrinkPrepared;
 }
 asyncAwaitPromiseHandling();
+// code examples above only handle resolve promise //
+
+const stock = {
+    sunglasses: {
+        quantity: 0,
+        price: 300,
+    },
+    bags: {
+        quantity: 3,
+        price: 600,
+    }
+};
+
+const purchasePromise = new Promise(function(resolve, reject) {
+if (stock.sunglasses.quantity > 0) {
+resolve("Sunglasses are available, proceeding with order...");
+}else {
+    reject("Sunglasses are out of stock, cancelling order...");
+}
+});
+async function orderSunglasses() {
+try {
+    let result = await purchasePromise;
+    console.log(result);
+} catch(error) {
+console.log(error);
+} 
+}
+orderSunglasses();
+
+
