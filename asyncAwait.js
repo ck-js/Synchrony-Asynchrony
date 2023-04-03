@@ -116,3 +116,40 @@ let value = await obtainGrade;
 console.log(value);
 }
 printGrade();
+
+// add async function 
+async function printHelloDevs() {
+    console.log("Hello javascript developers");
+}
+printHelloDevs();
+
+function goToTheMall() {
+return new Promise((resolve, reject) => {
+setTimeout(() => {
+resolve("I went to the mall to buy a new shirt");
+}, 10000);
+});
+}
+function selectShirt() {
+return new Promise((resolve,reject) => {
+setTimeout(() => {
+resolve("I like the black shirt, think i will buy this one");
+}, 500);
+});
+}
+function purchaseShirt() {
+    return new Promise((resolve,reject) => {
+setTimeout(() => {
+resolve("Bought shirt");
+}, 500);
+    })
+}
+async function handlePromise() {
+const promiseHandler1 = await goToTheMall();
+const promiseHandler2 = await selectShirt();
+const promiseHandler3 = await purchaseShirt();
+console.log(promiseHandler1);
+console.log(promiseHandler2);
+console.log(promiseHandler3);
+}
+handlePromise();
