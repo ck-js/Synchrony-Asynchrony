@@ -107,4 +107,12 @@ console.log(error);
 }
 orderSunglasses();
 
-
+let obtainGrade = new Promise((resolve,reject) => {
+setTimeout(() =>
+ resolve("Your overall grade is B+"), 2000);
+}); 
+async function printGrade() {
+let value = await obtainGrade;
+console.log(value);
+}
+printGrade();
