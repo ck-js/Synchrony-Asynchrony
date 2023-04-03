@@ -153,3 +153,24 @@ console.log(promiseHandler2);
 console.log(promiseHandler3);
 }
 handlePromise();
+
+const airMimo = {
+fleet: 150,
+avgPrice: 650,
+}
+const purchaseTicket = new Promise((resolve, reject) => {
+if (airMimo.avgPrice < 700) {
+resolve("Tickets are under 700");
+} else {
+    reject("Tickets are over 700");
+}
+});
+async function buyTicket() {
+try {
+let result = await purchaseTicket;
+console.log(result);
+}catch(error) {
+console.log(error);
+}
+}
+buyTicket();
